@@ -2,6 +2,7 @@ import React from 'react';
 import Pagination from './Pagination';
 import Pokemon from './Pokemon';
 
+
 const Pokedex = (props) => {
     const {pokemons, page, setPage, total, loading} = props;
 
@@ -22,7 +23,7 @@ const Pokedex = (props) => {
                 <Pagination page={page+1} totalPages={total} onLeftClick={prevPage} onRightClick={nextPage}/>
             </div>
             {loading ?
-                <div>Loading Pokemons...</div> 
+                <div className="not-found-text">Loading Pokemons...</div> 
             :
                 <div className="pokedex-grid">
                     {pokemons.map((pokemon, id) => {
