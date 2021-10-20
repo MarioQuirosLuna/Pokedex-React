@@ -1,8 +1,12 @@
 import React from 'react';
-import './styles.css';
+import './style/styles.css';
+import './style/media.css';
+import './style/colors.css';
 import Navbar from './Components/Navbar';
 import Searchbar from './Components/Searchbar';
 import Pokedex from './Components/Pokedex';
+import NotFound from './Components/NotFound';
+import FootPage from './Components/FootPage';
 import { searchPokemon, getPokemons, getPokemonData } from './api';
 import { FavoriteProvider } from './Contexts/favoriteContext';
 
@@ -86,16 +90,17 @@ export default function App() {
 
 	return (
 		<FavoriteProvider value={{favoritePokemons: favorites, updateFavoritePokemons: updateFavoritePokemon}}>
-			<div>
+			<div className="container">
 				<Navbar />
 				<div className="App">
 					<Searchbar onSearch={onSearch}/>
 					{notFound ? 
-						<div className="not-found-text">Pokemon Not Found</div>
+						<NotFound />						
 					:
 						<Pokedex loading={loading} pokemons={pokemons} page={page} setPage={setPage} total={total}/>
 					}				
 				</div>
+				<FootPage />
 			</div>
 		</FavoriteProvider>
 	);

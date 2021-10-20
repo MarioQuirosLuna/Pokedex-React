@@ -16,10 +16,16 @@ const Searchbar = (props) => {
         onSearch(search);
     };
 
+    const onKeyPress = async (evt) =>{
+        if(evt.key === 'Enter'){
+            onSearch(search);
+        }
+    };
+
     return (
         <div className="search-bar-container">
             <div className="search-bar">
-                <input placeholder="Search" onChange={onChange}></input>
+                <input placeholder="Search" onChange={onChange} onKeyPress={onKeyPress}></input>
             </div>
             <div className="search-bar-btn">
                 <button className="btn-Search" onClick={onClick}>Search</button>

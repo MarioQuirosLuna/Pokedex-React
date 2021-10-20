@@ -16,9 +16,9 @@ const ModalPokemon = (props) => {
             <div className="card-info">
                 <h4>Abilities:</h4>
                 <div className="card-info-abilities">                   
-                    {pokemon.abilities.map((ability) => {
+                    {pokemon.abilities.map((ability, index) => {
                         return (
-                            <p className="card-info-ability">{ability.ability.name}</p>
+                            <p key={index} className="card-info-ability">{ability.ability.name}</p>
                         );
                     })}
                 </div>

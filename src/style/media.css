@@ -1,0 +1,122 @@
+@media (prefers-reduced-motion: no-preference){
+    .Loading-logo{
+        animation: Loading-logo-spin infinite 10s linear;
+        -webkit-animation: Loading-logo-spin infinite 10s linear;
+    }
+}
+
+@keyframes Loading-logo-spin {
+    from {
+      transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+}
+    to {
+      transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+}
+  }
+
+@media (min-width: 320px){
+    .pokedex-grid{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .search-bar-container{
+        margin: 1em 10% 1em 10%;
+    }
+
+    .search-bar{
+        width: 100%;
+    }
+
+    .header{
+        margin: 0 1em;
+    }
+
+    .not-found-img{ 
+        padding-right: 1em;
+    }
+}
+
+@media (min-width: 520px){
+    
+    .not-found-text{
+        padding-left: 5em;
+    }
+    
+    
+}
+
+@media (min-width: 720px){
+    .pokedex-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar-heart-img{
+        width: 10%;
+    }
+
+    .header{
+        margin: 0 5em;
+    }
+    
+    .not-found-text{
+        padding-left: 3em;
+        font-size: 2.5em;
+    }
+    
+}
+
+@media (min-width: 1200px){
+    .pokedex-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .navbar-heart-img{
+        width: 5%;
+    }
+
+    .search-bar-container{
+        margin: 1em 20% 1em 20%;
+    }
+
+    .search-bar{
+        width: 30%;
+    }
+
+    .header{
+        margin: 0 25em;
+    }
+ 
+    .not-found-text{
+        padding-left: 3em;
+        font-size: 3em;
+    }
+    
+    .pikachu-404{
+        width: 90%;  
+    }
+}
+
+@media (min-width: 1600px){
+
+    .not-found-text{
+        padding-top: 2em;
+        padding-left: 4em;
+        font-size: 4em;
+    }
+
+    .not-found-img{ 
+        padding-right: 7em;
+    }
+    
+}
