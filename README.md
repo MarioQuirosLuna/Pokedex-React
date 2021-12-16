@@ -13,3 +13,5 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Deployed in: https://pokedex-react-nine.vercel.app/
+
+![Img preview](https://res.cloudinary.com/dusx4zdpz/image/upload/v1638990442/portfolio/portfolio/PokeAPI_pffdtu.png)
