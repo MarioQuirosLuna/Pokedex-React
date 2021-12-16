@@ -73,10 +73,6 @@ export default function App() {
 	};	
 
 	const onSearch = async (pokemon) => {
-		ReactGA.event({
-			category: 'Button',
-			action: 'Search'
-		})
 		if(!pokemon){
 			return fetchPokemons();
 		}

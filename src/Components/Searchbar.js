@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga'
 const {useState} = React;
 
 const Searchbar = (props) => { 
@@ -13,10 +14,18 @@ const Searchbar = (props) => {
     };
 
     const onClick = async (evt) =>{
+        ReactGA.event({
+			category: 'Button',
+			action: 'Click Search'
+		})
         onSearch(search);
     };
 
     const onKeyPress = async (evt) =>{
+        ReactGA.event({
+			category: 'Button',
+			action: 'Press Search'
+		})
         if(evt.key === 'Enter'){
             onSearch(search);
         }
