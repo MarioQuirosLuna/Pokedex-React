@@ -9,13 +9,10 @@ import NotFound from './Components/NotFound';
 import FootPage from './Components/FootPage';
 import { searchPokemon, getPokemons, getPokemonData } from './api';
 import { FavoriteProvider } from './Contexts/favoriteContext';
-import ReactGA from 'react-ga'
 
 const {useState, useEffect} = React;
 
 const localStorageKey = "favorite_pokemon";
-
-ReactGA.initialize('G-W6HGFVMD54',{ standardImplementation: true})
 
 export default function App() {
 	const [pokemons, setPokemons] = useState([]);
@@ -45,10 +42,6 @@ export default function App() {
 		const pokemons = JSON.parse(window.localStorage.getItem(localStorageKey)) || [];
 		setFavorites(pokemons);
 	};
-
-	useEffect(() => {
-		ReactGA.pageview(window.location.pathname + window.location.search)
-	}, [])
 
 	useEffect(() => {
 		loadFavoritePokemons();
