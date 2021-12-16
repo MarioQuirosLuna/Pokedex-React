@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactGA from 'react-ga'
+
 import useGAEventsTracker from '../useGAEventsTracker';
 const {useState} = React;
 
