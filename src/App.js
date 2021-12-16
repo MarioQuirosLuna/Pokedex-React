@@ -45,7 +45,7 @@ export default function App() {
 	};
 
 	useEffect(() => {
-		ReactGA.initialize('G-W6HGFVMD54')
+		ReactGA.initialize('G-W6HGFVMD54',{ standardImplementation: true})
 		ReactGA.pageview(window.location.pathname + window.location.search)
 	}, [])
 
