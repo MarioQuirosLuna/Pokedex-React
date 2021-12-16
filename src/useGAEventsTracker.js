@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactGA from 'react-ga'
 
 const useGAEventsTracker = (category = "Event Category") => {
