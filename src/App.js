@@ -15,6 +15,8 @@ const {useState, useEffect} = React;
 
 const localStorageKey = "favorite_pokemon";
 
+ReactGA.initialize('G-W6HGFVMD54',{ standardImplementation: true})
+
 export default function App() {
 	const [pokemons, setPokemons] = useState([]);
 	const [page, setPage] = useState(0);
@@ -45,7 +47,6 @@ export default function App() {
 	};
 
 	useEffect(() => {
-		ReactGA.initialize('G-W6HGFVMD54',{ standardImplementation: true})
 		ReactGA.pageview(window.location.pathname + window.location.search)
 	}, [])
 

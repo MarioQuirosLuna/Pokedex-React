@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactGA from 'react-ga'
+import useGAEventsTracker from '../useGAEventsTracker';
 const {useState} = React;
 
 const Searchbar = (props) => { 
     const { onSearch } = props;
     const [search, setSearch] = useState("");
+
+    const GAEventsSearch = useGAEventsTracker("Search")
 
     const onChange = (evt) =>{
         setSearch(evt.target.value.toLowerCase());
@@ -14,18 +17,12 @@ const Searchbar = (props) => {
     };
 
     const onClick = async (evt) =>{
-        ReactGA.event({
-			category: 'Button',
-			action: 'Click Search'
-		})
+        GAEventsSearch("Search Click")
         onSearch(search);
     };
 
     const onKeyPress = async (evt) =>{
-        ReactGA.event({
-			category: 'Button',
-			action: 'Press Search'
-		})
+        GAEventsSearch("Search Press")
         if(evt.key === 'Enter'){
             onSearch(search);
         }
