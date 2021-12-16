@@ -9,6 +9,7 @@ import NotFound from './Components/NotFound';
 import FootPage from './Components/FootPage';
 import { searchPokemon, getPokemons, getPokemonData } from './api';
 import { FavoriteProvider } from './Contexts/favoriteContext';
+import ReactGA from 'react-ga'
 
 const {useState, useEffect} = React;
 
@@ -44,6 +45,11 @@ export default function App() {
 	};
 
 	useEffect(() => {
+		ReactGA.initialize('G-W6HGFVMD54')
+		ReactGA.pageview(window.location.pathname + window.location.search)
+	}, [])
+
+	useEffect(() => {
 		loadFavoritePokemons();
 	},[]);
 
@@ -67,6 +73,10 @@ export default function App() {
 	};	
 
 	const onSearch = async (pokemon) => {
+		ReactGA.event({
+			category: 'Button',
+			action: 'Search'
+		})
 		if(!pokemon){
 			return fetchPokemons();
 		}
