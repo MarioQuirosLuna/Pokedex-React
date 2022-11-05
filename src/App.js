@@ -10,9 +10,10 @@ import FootPage from './Components/FootPage';
 import { searchPokemon, getPokemons, getPokemonData } from './api';
 import { FavoriteProvider } from './Contexts/favoriteContext';
 
-const {useState, useEffect} = React;
+const { useState, useEffect } = React;
 
 const localStorageKey = "favorite_pokemon";
+
 
 export default function App() {
 	const [pokemons, setPokemons] = useState([]);
@@ -35,7 +36,7 @@ export default function App() {
 			setLoading(false);
 			setTotal(Math.ceil(data.count / 25));
 			setNotFound(false);
-		}catch (err) {}
+		} catch (err) { }
 	};
 
 	const loadFavoritePokemons = () => {
@@ -45,41 +46,41 @@ export default function App() {
 
 	useEffect(() => {
 		loadFavoritePokemons();
-	},[]);
+	}, []);
 
 	useEffect(() => {
-		if(!searching){
+		if (!searching) {
 			fetchPokemons();
 		}
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [page]);
 
 	const updateFavoritePokemon = (name) => {
 		const update = [...favorites];
 		const isFavorite = favorites.indexOf(name);
-		if(isFavorite >= 0){
+		if (isFavorite >= 0) {
 			update.splice(isFavorite, 1);
-		}else{
+		} else {
 			update.push(name);
 		}
 		setFavorites(update);
 		window.localStorage.setItem(localStorageKey, JSON.stringify(update));
-	};	
+	};
 
 	const onSearch = async (pokemon) => {
-		if(!pokemon){
+		if (!pokemon) {
 			return fetchPokemons();
 		}
 		setLoading(true);
 		setNotFound(false);
 		setSearching(true);
 		const result = await searchPokemon(pokemon);
-		if(!result){
+		if (!result) {
 			setNotFound(true);
 			setLoading(false);
 			setSearching(false);
 			return;
-		}else{
+		} else {
 			setPokemons([result]);
 			setPage(0);
 			setTotal(1);
@@ -89,16 +90,16 @@ export default function App() {
 	};
 
 	return (
-		<FavoriteProvider value={{favoritePokemons: favorites, updateFavoritePokemons: updateFavoritePokemon}}>
+		<FavoriteProvider value={{ favoritePokemons: favorites, updateFavoritePokemons: updateFavoritePokemon }}>
 			<div className="container">
 				<Navbar />
 				<div className="App">
-					<Searchbar onSearch={onSearch}/>
-					{notFound ? 
-						<NotFound />						
-					:
-						<Pokedex loading={loading} pokemons={pokemons} page={page} setPage={setPage} total={total}/>
-					}				
+					<Searchbar onSearch={onSearch} />
+					{notFound ?
+						<NotFound />
+						:
+						<Pokedex loading={loading} pokemons={pokemons} page={page} setPage={setPage} total={total} />
+					}
 				</div>
 				<FootPage />
 			</div>
