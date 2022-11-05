@@ -14,7 +14,6 @@ const { useState, useEffect } = React;
 
 const localStorageKey = "favorite_pokemon";
 
-
 export default function App() {
 	const [pokemons, setPokemons] = useState([]);
 	const [page, setPage] = useState(0);
